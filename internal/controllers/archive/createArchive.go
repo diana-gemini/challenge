@@ -42,7 +42,7 @@ func (h *ArchiveController) CreateArchive(c *gin.Context) {
 		}
 
 		if !isValidFileMimeType(mimeType) {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "Houston, we have a problem. One of these files is an alien." + mimeType + fileHeader.Filename})
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Houston, we have a problem. One of these files is an alien."})
 			return
 		}
 
@@ -90,7 +90,7 @@ func getFileTypeByContent(file io.Reader, fileName string) (string, error) {
 	if strings.HasSuffix(fileName, ".png") {
 		mimeType = "image/png"
 	}
-	
+
 	return mimeType, nil
 }
 

@@ -106,6 +106,7 @@ func (h *MailController) SendEmail(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to send email"})
 		return
 	}
+
 	c.JSON(http.StatusOK, models.SuccessResponse{Result: "Email sent successfully with attachments!"})
 }
 
